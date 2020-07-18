@@ -1,0 +1,102 @@
+----常用插件
+Auto-Using for C# --自动导入命名空间
+Bracket Pair Colorizer --括号带颜色
+C#
+C# Extensions
+C# XML Documentation Comments
+Chinese (Simplified) Language Pack for Visual Studio Code --中文
+Debugger for Unity  ---unity 脚本提示
+EditorConfig for VS Code 
+EmmyLua   ---lua 脚本提示
+Lua Debug
+Prettier - Code formatter --代码自动保存时对齐，setting，json加一行   "editor.formatOnSave": true,
+Python
+Unity Code Snippets
+Unity Snippets Modified
+Unity Tools
+UnityHelper
+Visual Studio Keymap  -- vs键盘快捷键
+XML Tools
+
+1，要安装java jdk 8以上 并且配置环境
+2，要安装。netcode sdk
+3，安装.NETFramework
+4,安装后重启
+
+打开用户设置，输入encoding，勾选Auto Guess Encoding，解决中文乱码 
+1，编码格式一定要是 UTF-8 
+2，UTF-8 with BOM 格式加载不出来
+3，lua 路径最好是在和其他lua路径一样
+
+------ setting.json文件
+    "files.autoGuessEncoding": true,
+    "files.associations": {
+    
+    },
+    --忽略查找和显示文件后缀
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "build/": true,
+        "temp/": true,
+        "library/": true,
+        "**/*.anim": true
+    },
+    "files.exclude": {
+        "**/.csproj": true,
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/*.meta": true,
+        "library/": true,
+        "local/": true,
+        "temp/": true
+    },
+    "editor.links": false,
+    "editor.formatOnSave": true,
+    "window.zoomLevel": 1,
+    "prettier.semi": false,
+    "prettier.useEditorConfig": false
+-------
+vs Code 无法智能提示unity 脚本
+1，.NETFramework版本的原因
+查看根目录下的Assembly-CSharp.csproj（不同项目可能不大一样）文件，
+可以看到这一句XML：<TargetFrameworkVersion>，如图1所示，指向的是V4.7.1的NET版本
+2，文件夹中可能有多个项目，而VSCode选择了错误的项目（即.sln文件）！
+解决方案：
+打开vscode按下：ctrl + shift + P 快捷键
+输入：OmniSharp: select project
+
+
+--EmmyLuaService.cs 放到Editor 文件下 在菜单栏选择 Enable
+--调试时先把原来的launch.json  文件删了-- 选中--运行--启动调试，选择终端 --配置launch ，选择平台
+--调试CS 选择unity Debug 调试lua 选择EmmyLua New Debug  配置launch 在一个.lua 脚本里
+--启动 ctrl +shift +p  输入EmmyLua Insert EmmyLuaDebugger Coder
+--选择 x64 生成配置文件  
+--例如 
+package.cpath =
+    package.cpath ..
+    ";c:/Users/Administrator.XSOOY-20190615H/.vscode/extensions/tangzx.emmylua-0.3.37/debugger/emmy/windows/x64/?.dll"
+local dbg = require("emmy_core")
+dbg.tcpListen("localhost", 9966)
+
+--如果启动提示没有加载出来emmy_core 请在上述地址中找
+
+启动unity后断点才能开始，初始化模块不能调试（登录之前）
+
+----常用快捷键
+ctrl 键 + /键  注释--取消注释
+ctrl + P --查找最近打开的文件
+ctrl +shift +p --查找所有文件
+ctrl + shift +o --查找方法函数列表
+shift + alt + f --格式化
+alt + 箭头 向上移动代码
+ctrl  +enter 向上空格
+shift _enter 向下空格
+shift +alt +f 在指定文件下查找文件  
+//创建cs 控制台程序
+// 在顶部菜单中选择“终端”，在下方将出现cmd命令输入框
+// 输入dotnet new -h 查看帮助信息
+// dotnet new console 创建一个控制台程序
+// 创建完成后在控制台输入dotnet run 运行程序
+
+      

@@ -1,0 +1,12 @@
+1,跳转类的话，类前面加
+
+---@class 类名
+最后 return 类名 方法前加这个也可以返回
+
+2，xxx=require
+前面加 ---@type 类名
+
+3,方法前加   ---@type 方法名
+
+4,继承的类写法
+ ---@class DataManager:Singleton
